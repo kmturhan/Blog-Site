@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddOrEdit(int id = 0)
+        public ActionResult AddOrEdit(int? id = 0)
         {
             if (id == 0)
                 return View();

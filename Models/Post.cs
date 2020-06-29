@@ -9,7 +9,7 @@ namespace WebApplication1.Models
 {
     public class Post
     {
-        public int ID { get; set; }
+        public int ID { get; set; } = -1;
         public string ImagePath { get; set; }
         public IFormFile PostImage { get; set; }
         public string Title { get; set; }

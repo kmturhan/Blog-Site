@@ -9,9 +9,9 @@
     <div class="col-md-8">
 
         <h1 class="my-4">
-            Blogger
+            Homepage
         </h1>
-        @foreach (var item in Model.mainList)
+        @foreach (var item in Model.mainList.Reverse())
         {
             <!-- Blog Post -->
             <div class="card mb-4">
@@ -20,7 +20,8 @@
                     <h2 class="card-title">@item.Title</h2>
                     <p class="card-text">@item.Short_Content</p>
                     @Html.ActionLink("Read More", "DetailPage", new { id = item.ID }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Edit", "AddOrEdit", new { id = item.ID }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Edit", "AddOrEdit", new { id = item.ID }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Delete","Delete",new {id = item.ID }, new { @class = "btn btn-danger"})
                 </div>
                 <div class="card-footer text-muted">
                     Posted on @item.Create_Time.ToShortDateString()
@@ -49,8 +50,7 @@
             <h5 class="card-header">Create New Post</h5>
             <div class="card-body">
                 <div class="input-group">
-                        @Html.ActionLink("Create New", "AddOrEdit", "Home",new { ID = Model.mainList.Count() })
-                    
+                        @Html.ActionLink("Create New", "AddOrEdit", "Home")
                 </div>
             </div>
         </div>
@@ -70,7 +70,6 @@
                                         @Html.ActionLink(item, "CategoryPost", "Home", new { CategoryName = item })
                                     </li>
                                 }
-
                             }
                         </ul>
                     </div>
